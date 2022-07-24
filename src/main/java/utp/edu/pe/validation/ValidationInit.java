@@ -3,11 +3,9 @@ package utp.edu.pe.validation;
 import utp.edu.pe.model.Disponibilidad;
 import utp.edu.pe.utils.Functions;
 
-import java.io.IOException;
-
 public class ValidationInit {
 
-    public static Disponibilidad separacionCodNombreAndHorarios(String input) throws IOException {
+    public static Disponibilidad separacionCodNombreAndHorarios(String input){
 
         String[] items = input.split("\\{");
         Disponibilidad disponibilidad = new Disponibilidad();
@@ -23,7 +21,7 @@ public class ValidationInit {
                 if(!ValidationCode.validationCode(arrayCodigoNombre[0])){
                     response = false;
                 }
-                if(arrayCodigoNombre[1].isBlank()){
+                if(!ValidatioName.validacionLongitud(arrayCodigoNombre[1])){
                     response = false;
                 }
             }

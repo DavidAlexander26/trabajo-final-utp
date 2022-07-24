@@ -105,11 +105,11 @@ public class TextUTP {
     public static void append(List<String> data, String filename) throws IOException {
         append(data, filename, true);
     }
-    public static void  generarFileHTML(String nameFile, String content){
+    public static void  generarFileHTML(String path, String nameFile, String content){
         try {
-            String path = "D:\\Proyectos\\trabajo-final-utp\\src\\main\\resources\\reports\\".concat(nameFile).concat(".html");
+            String pathComplete = path.concat(nameFile).concat(".html");
 
-            File file = new File(path);
+            File file = new File(pathComplete);
             if(!file.exists()){
                 file.createNewFile();
             }
@@ -117,6 +117,21 @@ public class TextUTP {
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void generarFile(String path){
+        try {
+            File file = new File(path);
+            if(file.exists()){
+                file.delete();
+            }
+            if(!file.exists()){
+                file.createNewFile();
+            }
+
         }
         catch (Exception e){
             e.printStackTrace();

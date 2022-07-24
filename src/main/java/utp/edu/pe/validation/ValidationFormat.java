@@ -3,10 +3,9 @@ package utp.edu.pe.validation;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.utils.Functions;
 
-import java.io.IOException;
 
 public class ValidationFormat {
-    public static String validacionFormato(String input) throws IOException {
+    public static String validacionFormato(String input) {
         String response = Constantes.RESPONSE_FORMATO_ERROR;
         int cantDosPuntos = 0;
         int cantComa = 0;

@@ -29,6 +29,8 @@ public class Constantes {
     //Validacion Codigo
     public static final String CODIGO = "C";
 
-
+    //Nombre de arcivos generados
+    public static final String FILE_ERROR = "error.log";
+    public static final String FILE_DATA_DISPONIBILIDAD = "disponibilidad.txt";
 
 }
