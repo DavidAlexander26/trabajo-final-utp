@@ -108,7 +108,6 @@ public class TextUTP {
     public static void  generarFileHTML(String path, String nameFile, String content){
         try {
             String pathComplete = path.concat(nameFile).concat(".html");
-
             File file = new File(pathComplete);
             if(!file.exists()){
                 file.createNewFile();
@@ -135,6 +134,25 @@ public class TextUTP {
         }
         catch (Exception e){
             e.printStackTrace();
+        }
+    }
+    public static void generarDirectorio(String path){
+        String pathComplete = path.concat(Constantes.ARCHIVES_HTML);
+        try {
+            File directorio = new File(pathComplete);
+            if (!directorio.exists()) {
+                if (directorio.mkdirs()) {
+                    System.out.println("Directorio creado");
+                } else {
+                    System.out.println("Error al crear directorio");
+                }
+            }
+            else{
+                directorio.delete();
+            }
+        }
+        catch (Exception e){
+
         }
     }
 }

@@ -61,7 +61,6 @@ public class Functions {
     }
 
     public static void generarHTMLCodigo(String code, String content) {
-        String path = "D:\\Proyectos\\trabajo-final-utp\\src\\main\\resources\\reports\\";
-        TextUTP.generarFileHTML(path, code, content);
+        TextUTP.generarFileHTML(Path.getPathReport(), code, content);
     }
 }

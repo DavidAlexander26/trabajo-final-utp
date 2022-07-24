@@ -11,11 +11,11 @@ public class ReportHTML {
         String anteriorHTML = "";
         String siguienteHTML = "";
         if(!anterior.isBlank()){
-            anteriorHTML = "<a href=\"".concat(Path.getPathError()).concat("\\").concat(anterior)
+            anteriorHTML = "<a href=\"".concat(Path.getPathReport()).concat("\\").concat(anterior)
                     .concat(".html").concat("\">ATRAS</a> &nbsp  &nbsp");
         }
         if(!siguiente.isBlank()){
-            siguienteHTML = "<a href=\"".concat(Path.getPathError()).concat("\\").concat(siguiente)
+            siguienteHTML = "<a href=\"".concat(Path.getPathReport()).concat("\\").concat(siguiente)
                     .concat(".html").concat("\">SIGUIENTE</a>");
         }
         String tituloHTML = "Reporte -".concat(disponibilidad.getCodigo());
