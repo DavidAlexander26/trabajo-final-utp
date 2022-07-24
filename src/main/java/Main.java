@@ -14,7 +14,7 @@ public class Main
         //window.mostrar();
 
         public static void main(String[] args) throws IOException {
-            String entrada = "A19590:FERNANDO DIAZ:{LUN:ALL, MAR:M, MIE:T, JUE:X, VIE:ALL, SAB:X, DOM:X}";
+            String entrada = "C19590:FERNANDO DIAZ:{LUN:ALL, MAR:M, MIE:T, JUE:N, VIE:ALL, SAB:X, DOM:X}";
             //validacionFormato(entrada);
             //System.out.println(ValidationFormat.validacionFormato(entrada));
             String response = ValidationFormat.validacionFormato(entrada);
@@ -22,6 +22,9 @@ public class Main
                 Disponibilidad responseService = ValidationInit.separacionCodNombreAndHorarios(entrada);
                 System.out.println(responseService);
             }
+            PantallaPrincipal window = new PantallaPrincipal();
+            window.mostrar();
         }
    // }
+
 }

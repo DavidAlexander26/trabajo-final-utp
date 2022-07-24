@@ -18,6 +18,6 @@ public class Functions {
         formato.append("ERROR: ").append(error);
 
         String[] data = { String.valueOf(formato)};
-        TextUTP.append(data,"D:\\Proyectos\\trabajo-final-utp\\src\\main\\resources\\error.log",true);
+        TextUTP.append(data,"C:\\Users\\ALEXIS\\Documents\\ProyectoUTP\\trabajo-final-utp\\src\\main\\resources\\error.log",true);
     }
 }

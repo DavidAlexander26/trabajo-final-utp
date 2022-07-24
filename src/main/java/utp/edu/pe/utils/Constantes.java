@@ -29,6 +29,9 @@ public class Constantes {
     //Validacion Codigo
     public static final String CODIGO = "C";
 
-
+    //HORAS DISPONIBLES
+    public  static final double HORAS_M=6;
+    public  static final double HORAS_T=6;
+    public  static final double HORAS_N=4;
 
 }
