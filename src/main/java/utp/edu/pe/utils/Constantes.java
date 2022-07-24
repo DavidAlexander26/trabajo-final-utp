@@ -33,4 +33,8 @@ public class Constantes {
     public static final String FILE_ERROR = "error.log";
     public static final String FILE_DATA_DISPONIBILIDAD = "disponibilidad.txt";
 
+    //HTML
+    public static final String PINTAR_CELDA = "bgcolor=\"yellow\"";
+    public static final String NO_PINTAR_CELDA = "";
+
 }
