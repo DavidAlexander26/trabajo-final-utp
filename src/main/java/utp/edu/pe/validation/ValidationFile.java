@@ -45,6 +45,7 @@ public class ValidationFile {
             Generador variables= new Generador(disponibilidadCorrecta,counterErrors,counterTotal);
             ///ReportAsci.outReport(variables);
             ReportAsciiPlot.outReport(variables);
+            variables.getDisponibilidadCorrecto();
             //Calculos.porcentajes(variables);
         }
         else{
