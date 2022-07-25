@@ -14,7 +14,7 @@ public class Plot {
         return plot;
     }
 
-    public static void setPlotData(String[][] data, int[] info, int tamanoEjeX, int tamanoY){
+    public static void setPlotData(String[][] data, int[] info, int tamanoY){
         int ejeX=0;
         for (int i = 0; i < info.length; i++){
             int ejeY = switch (info[i]){

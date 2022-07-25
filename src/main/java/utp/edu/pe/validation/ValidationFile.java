@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ValidationFile {
 
-    public static void validacionFile(String archivoDisponibilidad, String tipoReport) throws IOException {
+    public static Generador validacionFile(String archivoDisponibilidad, String tipoReport) throws IOException {
         String response="";
         Disponibilidad responseService;
         int counterTotal=0;
@@ -44,7 +44,7 @@ public class ValidationFile {
                 }
             }
             Generador variables= new Generador(disponibilidadCorrecta,counterErrors,counterTotal);
-            ///ReportAsci.outReport(variables);
+
             switch (tipoReport){
                 case "ASCI":
                     ReportAsci.outReport(variables);
@@ -58,10 +58,7 @@ public class ValidationFile {
                 default:
                     throw new IOException("Este tipo de reporte no existe");
             }
-
-            //ReportAsciiPlot.outReport(variables);
-            //variables.getDisponibilidadCorrecto();
-            //Calculos.porcentajes(variables);
+            return variables;
         }
         else{
             throw new IOException("El contenido del archivo es vacio..");

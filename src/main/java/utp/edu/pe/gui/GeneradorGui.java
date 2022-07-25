@@ -1,5 +1,6 @@
 package utp.edu.pe.gui;
 
+import utp.edu.pe.model.Generador;
 import utp.edu.pe.utils.*;
 import utp.edu.pe.validation.ValidationFile;
 
@@ -112,18 +113,21 @@ public class GeneradorGui {
     }
     private void clickBtnReportAsci(Object o) {
         String inputRutaArchivo  = validarRuta(txtRutaArchivo.getText().trim());
-        String inputRutaReporte = validarRuta(txtRutaReport.getText().trim());
         try {
-            ValidationFile.validacionFile(inputRutaArchivo,"ASCI");
+           Generador validado= ValidationFile.validacionFile(inputRutaArchivo,"ASCI");
+           txtInformativo.setText(String.valueOf(validado.getNumTotal()));
+           txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
     private void clickBtnReportAsciPlot(Object o) {
         String inputRutaArchivo  = validarRuta(txtRutaArchivo.getText().trim());
-        String inputRutaReporte = validarRuta(txtRutaReport.getText().trim());
         try {
-            ValidationFile.validacionFile(inputRutaArchivo,"ASCIPLOT");
+            Generador validado= ValidationFile.validacionFile(inputRutaArchivo,"ASCIPLOT");
+            txtInformativo.setText(String.valueOf(validado.getNumTotal()));
+            txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -132,9 +136,10 @@ public class GeneradorGui {
 
     private void clickBtnReporthtml(Object o) {
         String inputRutaArchivo  = validarRuta(txtRutaArchivo.getText().trim());
-        String inputRutaReporte = validarRuta(txtRutaReport.getText().trim());
         try {
-            ValidationFile.validacionFile(inputRutaArchivo,"HTML");
+            Generador validado=ValidationFile.validacionFile(inputRutaArchivo,"HTML");
+            txtInformativo.setText(String.valueOf(validado.getNumTotal()));
+            txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

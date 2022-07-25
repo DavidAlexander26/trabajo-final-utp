@@ -42,7 +42,7 @@ public class ReportAsciiPlot {
             info= ArrayPush.push(info,(int) (porcentaje[i]));
         }
         String[][] plot = Plot.makePlotData(eje.length,info.length);
-        Plot.setPlotData(plot, info,diasSemana.length, eje.length);
+        Plot.setPlotData(plot, info, eje.length);
         //Dibujar plot
         for (int f = 0; f < plot.length; f++){
             System.out.printf("%3d|", eje[f]);
