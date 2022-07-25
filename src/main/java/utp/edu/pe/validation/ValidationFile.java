@@ -4,6 +4,7 @@ import utp.edu.pe.calculos.Calculos;
 import utp.edu.pe.model.Disponibilidad;
 import utp.edu.pe.model.Generador;
 import utp.edu.pe.reports.ReportAsci;
+import utp.edu.pe.reports.ReportAsciiPlot;
 import utp.edu.pe.utils.ArrayPush;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.utils.TextUTP;
@@ -42,7 +43,9 @@ public class ValidationFile {
                 }
             }
             Generador variables= new Generador(disponibilidadCorrecta,counterErrors,counterTotal);
-            ReportAsci.outReport(variables);
+            ///ReportAsci.outReport(variables);
+            ReportAsciiPlot.outReport(variables);
+            //Calculos.porcentajes(variables);
         }
         else{
             throw new IOException("El contenido del archivo es vacio..");

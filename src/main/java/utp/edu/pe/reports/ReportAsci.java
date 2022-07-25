@@ -11,7 +11,7 @@ public class ReportAsci {
         System.out.println("---- REPORTE DE DISPONIBILIDAD DE HORARIOS ----");
         System.out.printf("     Cantidad de registros cargados:  %s%n", generador.getNumTotal());
         System.out.printf("     Cantidad de registros con errores:  %s%n", generador.getNumErrors());
-        System.out.println("---- HORAS DISPONIBLES POR CADA DÍA ----");
+        System.out.println("---- HORAS DISPONIBLES POR CADA DIA ----");
         System.out.printf("     LUNES:  %s%n", Calculos.totalHorasDisponiblePorDia(generador).getTotalHorasDiarias()[0]);
         System.out.printf("     MARTES:  %s%n", Calculos.totalHorasDisponiblePorDia(generador).getTotalHorasDiarias()[1]);
         System.out.printf("     MIERCOLES:  %s%n", Calculos.totalHorasDisponiblePorDia(generador).getTotalHorasDiarias()[2]);
@@ -25,6 +25,7 @@ public class ReportAsci {
         System.out.printf("     NOCHE:  %s%n", Calculos.totalHorasDisponiblePorBloque(generador).getTotalHorasPorBloque()[2]);
         System.out.println("-----------------------------------");
         System.out.printf("     DISPONIBILIDAD GENERAL:  %s%n", Calculos.totalHorasDisponible(generador).getHorasTotalesDisponibles());
+        System.out.printf("     PROMEDIO DE HORAS DISPONIBLES:  %s%n", Calculos.promedio(generador).getPromedioHorasDisponibles());
         System.out.printf("     DOCENTE CON MAYOR CANTIDAD DE HORAS DISPONIBLES:  %s%n", Calculos.getDocenteMayorCantidadHoras(generador).getDocenteMayorCantidadHoras().getNombre());
         System.out.printf("     DOCENTE CON MENOR CANTIDAD DE HORAS DISPONIBLES:  %s%n", Calculos.getDocenteMenorCantidadHoras(generador).getDocenteMenorCantidadHoras().getNombre());
     }

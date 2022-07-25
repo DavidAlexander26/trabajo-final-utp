@@ -21,10 +21,10 @@ public class Calculos {
                 } else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M) {
                     horasDisponibleDiarias[j]+=Constantes.HORAS_M;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T && j!=6) {
                     horasDisponibleDiarias[j]+=Constantes.HORAS_T;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N && j!=6) {
                     horasDisponibleDiarias[j]+=Constantes.HORAS_N;
                 }
             }
@@ -49,10 +49,10 @@ public class Calculos {
                 } else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M) {
                     horasDisponiblePorBloque[0]+=Constantes.HORAS_M;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T && j!=6) {
                     horasDisponiblePorBloque[1]+=Constantes.HORAS_T;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N && j!=6) {
                     horasDisponiblePorBloque[2]+=Constantes.HORAS_N;
                 }
             }
@@ -72,13 +72,34 @@ public class Calculos {
         return generador;
     }
 
-    public static Generador promedio(Generador generador) {
-        int horasDisponibleTotal= 0;
-        totalHorasDisponiblePorBloque(generador);
-        for (int i = 0; i <generador.getTotalHorasPorBloque().length ; i++) {
-            horasDisponibleTotal+=generador.getTotalHorasPorBloque()[i];
+    public static Generador promedio(Generador generador) throws IOException {
+        int horasTotalesDisponibles=0;
+        int[] horasDisponiblesPorPersona= new int[]{};
+        int suma=0;
+        double promedio=0.0;
+        for (int i = 0; i < generador.getDisponibilidadCorrecto().length; i++) {
+            for (int j = 0; j < generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal().length; j++) {
+                if(generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.ALL){
+                    horasTotalesDisponibles+=Constantes.HORAS_M+Constantes.HORAS_T+Constantes.HORAS_N;
+
+                } else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M) {
+                    horasTotalesDisponibles+=Constantes.HORAS_M;
+                }
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T && j!=6) {
+                    horasTotalesDisponibles+=Constantes.HORAS_T;
+                }
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N && j!=6) {
+                    horasTotalesDisponibles+=Constantes.HORAS_N;
+                }
+            }
+            horasDisponiblesPorPersona= ArrayPush.push(horasDisponiblesPorPersona,horasTotalesDisponibles);
+            horasTotalesDisponibles=0;
         }
-        generador.setHorasTotalesDisponibles(horasDisponibleTotal);
+        for (int i = 0; i < horasDisponiblesPorPersona.length; i++) {
+            suma+=horasDisponiblesPorPersona[i];
+        }
+        promedio= suma/(horasDisponiblesPorPersona.length);
+        generador.setPromedioHorasDisponibles(promedio);
         return generador;
     }
 
@@ -95,16 +116,16 @@ public class Calculos {
                 } else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M) {
                     horasTotalesDisponibles+=Constantes.HORAS_M;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T && j!=6) {
                     horasTotalesDisponibles+=Constantes.HORAS_T;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N && j!=6) {
                     horasTotalesDisponibles+=Constantes.HORAS_N;
                 }
             }
             horasDisponiblesPorPersona= ArrayPush.push(horasDisponiblesPorPersona,horasTotalesDisponibles);
             horasTotalesDisponibles=0;
-            
+
         }
         for (int x = 1; x < horasDisponiblesPorPersona.length; x++) {
             if (horasDisponiblesPorPersona[x] > horasDisponiblesPorPersona[indiceDelMayor]) {
@@ -128,10 +149,10 @@ public class Calculos {
                 } else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M) {
                     horasTotalesDisponibles+=Constantes.HORAS_M;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T && j!=6) {
                     horasTotalesDisponibles+=Constantes.HORAS_T;
                 }
-                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N) {
+                else if (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N && j!=6) {
                     horasTotalesDisponibles+=Constantes.HORAS_N;
                 }
             }
@@ -146,5 +167,25 @@ public class Calculos {
         Disponibilidad personDisponible= generador.getDisponibilidadCorrecto()[indiceDelMenor];
         generador.setDocenteMenorCantidadHoras(personDisponible);
         return generador;
+    }
+
+    public static double[] porcentajes(Generador generador){
+        double[] arrayPorcentajesDouble = new double[]{0.0,0.0,0.0,0.0,0.0,0.0,0.0};
+        for (int i = 0; i < generador.getDisponibilidadCorrecto().length; i++) {
+            for (int j = 0; j < generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal().length; j++) {
+                if((generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.ALL && j!=6)
+                || (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.M)
+                || (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.N  && j!=6)
+                || (generador.getDisponibilidadCorrecto()[i].getDisponibilidadSemanal()[j] == Constantes.T  && j!=6)
+                ) {
+                    arrayPorcentajesDouble[j] += 1;
+                }
+            }
+        }
+        for (int i = 0; i < arrayPorcentajesDouble.length; i++) {
+            arrayPorcentajesDouble[i]=arrayPorcentajesDouble[i]/generador.getDisponibilidadCorrecto().length;
+        }
+        System.out.println(".."+Arrays.toString(arrayPorcentajesDouble));
+        return arrayPorcentajesDouble;
     }
 }
