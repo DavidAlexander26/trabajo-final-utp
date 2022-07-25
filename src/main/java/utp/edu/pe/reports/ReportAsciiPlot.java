@@ -42,16 +42,14 @@ public class ReportAsciiPlot {
             info= ArrayPush.push(info,(int) (porcentaje[i]));
         }
         String[][] plot = Plot.makePlotData(eje.length,info.length);
-        System.out.println(Arrays.toString(info));
-        Plot.setPlotData(plot, info,diasSemana.length,info.length);
+        Plot.setPlotData(plot, info,diasSemana.length, eje.length);
         //Dibujar plot
         for (int f = 0; f < plot.length; f++){
             System.out.printf("%3d|", eje[f]);
             if(eje[f]==0){
-                System.out.print("");
+                System.out.print("---------------------------");
             }
             for (int c = 0; c < plot[0].length; c++){
-                System.out.print(c);
                 System.out.printf(plot[f][c]+" ");
             }
             System.out.printf("\n");
@@ -60,6 +58,5 @@ public class ReportAsciiPlot {
         for (int i = 0; i < diasSemana.length; i++) {
             System.out.print(""+diasSemana[i]+" ");
         }
-
     }
 }

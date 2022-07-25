@@ -185,7 +185,6 @@ public class Calculos {
         for (int i = 0; i < arrayPorcentajesDouble.length; i++) {
             arrayPorcentajesDouble[i]=arrayPorcentajesDouble[i]/generador.getDisponibilidadCorrecto().length;
         }
-        System.out.println(".."+Arrays.toString(arrayPorcentajesDouble));
         return arrayPorcentajesDouble;
     }
 }
