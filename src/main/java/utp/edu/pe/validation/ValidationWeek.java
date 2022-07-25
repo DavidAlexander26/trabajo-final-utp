@@ -3,11 +3,9 @@ package utp.edu.pe.validation;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.utils.Functions;
 
-import java.io.IOException;
-
 public class ValidationWeek {
 
-    public static  String[] validation(String[] arrayHorarios) throws IOException {
+    public static  String[] validation(String[] arrayHorarios){
         boolean response = true;
         String[] resp = null;
 
@@ -98,7 +96,7 @@ public class ValidationWeek {
             if(!Constantes.DOMINGO.equals(diaDomingo[0].trim())){
                 response = response && false;
             }
-            if(!validationDisponibilidadDia(diaDomingo[1].trim())){
+            if(!validationDisponibilidadDiaDomingo(diaDomingo[1].trim())){
                 response = response && false;
             }
         }
@@ -130,6 +128,17 @@ public class ValidationWeek {
             response = true;
         }
         if(Constantes.N.equals(item)){
+            response = true;
+        }
+        if(Constantes.X.equals(item)){
+            response = true;
+        }
+        return response;
+    }
+    private static boolean validationDisponibilidadDiaDomingo(String item){
+        boolean response = false;
+
+        if(Constantes.M.equals(item)){
             response = true;
         }
         if(Constantes.X.equals(item)){

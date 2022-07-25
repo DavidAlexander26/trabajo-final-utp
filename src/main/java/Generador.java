@@ -1,4 +1,4 @@
-import utp.edu.pe.gui.PantallaPrincipal;
+import utp.edu.pe.gui.GeneradorGui;
 import utp.edu.pe.model.Disponibilidad;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.validation.ValidationFile;
@@ -10,9 +10,11 @@ import java.io.IOException;
 
 public class Generador {
     public static void main(String[] args) throws IOException {
-        String archivoDisponibilidad="C:\\Users\\ALEXIS\\Documents\\ProyectoUTP\\trabajo-final-utp\\src\\main\\resources\\disponibilidad.txt";
+        //String archivoDisponibilidad="C:\\Users\\ALEXIS\\Documents\\ProyectoUTP\\trabajo-final-utp\\src\\main\\resources\\disponibilidad.txt";
+        GeneradorGui windows = new GeneradorGui();
+        windows.mostrar();
         //validacionFormato(entrada)
-        ValidationFile.validacionFile(archivoDisponibilidad);
+        //ValidationFile.validacionFile(archivoDisponibilidad);
         //System.out.println(ValidationFormat.validacionFormato(entrada));
        /* String response = ValidationFormat.validacionFormato(entrada);
         if(response.equals(Constantes.RESPONSE_FORMATO_OK)){
