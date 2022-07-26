@@ -1,4 +1,5 @@
 import utp.edu.pe.gui.Capturador;
+
 import java.io.IOException;
 
 public class Main {
