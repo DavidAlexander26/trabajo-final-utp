@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import static utp.edu.pe.utils.TextUTP.OS.WINDOWS;
+
 public class Functions {
+
     public static void addFormatoError(String error) {
         try {
             LocalDate fecha = LocalDate.now();
@@ -45,7 +48,7 @@ public class Functions {
                     .concat(semana[6]).concat("}");
 
             String[] data = {formato};
-            TextUTP.append(data, Path.getPathArchivoDisponibilidad(), true);
+            TextUTP.append(data, Path.getPathArchivoDisponibilidad(), true,WINDOWS);
         } catch (IOException e) {
             e.printStackTrace();
         }

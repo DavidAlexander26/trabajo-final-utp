@@ -1,11 +1,11 @@
-package utp.edu.pe.report;
+package utp.edu.pe.reports;
 
 import utp.edu.pe.model.Disponibilidad;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.utils.Functions;
 import utp.edu.pe.utils.Path;
 
-public class ReportHTML {
+public class FormatReportHTML {
     public static void generarReporte(Disponibilidad disponibilidad,String anterior, String siguiente){
 
         String anteriorHTML = "";

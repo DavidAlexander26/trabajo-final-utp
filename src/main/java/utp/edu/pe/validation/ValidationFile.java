@@ -24,8 +24,7 @@ public class ValidationFile {
         int counterTotal=0;
         int counterErrors=0;
         Disponibilidad[] disponibilidadCorrecta= new Disponibilidad[]{};
-        String[] content = TextUTP.readlinesAsArray(archivoDisponibilidad, TextUTP.OS.WINDOWS
-        );
+        String[] content = TextUTP.readlinesAsArray(archivoDisponibilidad, TextUTP.OS.WINDOWS);
         if(content.length>0){
             for (int i = 0; i <content.length; i++) {
                 counterTotal+=1;

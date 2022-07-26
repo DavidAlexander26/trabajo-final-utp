@@ -43,7 +43,7 @@ public class GeneradorGui {
 
         lblRutaReport    = new JLabel("Ruta de reporte:");
         txtRutaReport = new JTextField(30);
-        btnRutaReport    = new JButton("Cargar");
+        btnRutaReport    = new JButton("Guardar");
 
         lblReportAsci    = new JLabel("Reporte ASCI:");
         txtReportAsci      = new JTextField(30);
@@ -60,7 +60,7 @@ public class GeneradorGui {
         ///
         lblRutaErrores = new JLabel("Ruta de Error:");
         txtRutaErrores  = new JTextField(30);
-        btnRutaError = new JButton("Cargar");
+        btnRutaError = new JButton("Guardar");
 
         lblInformativo = new JLabel("Datos Registrados en el programa:");
         txtInformativo = new JTextField(30);
@@ -117,7 +117,7 @@ public class GeneradorGui {
            Generador validado= ValidationFile.validacionFile(inputRutaArchivo,"ASCI");
            txtInformativo.setText(String.valueOf(validado.getNumTotal()));
            txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
-
+            JOptionPane.showMessageDialog(null, "Reporte ASCI Generado correctamente");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -128,6 +128,7 @@ public class GeneradorGui {
             Generador validado= ValidationFile.validacionFile(inputRutaArchivo,"ASCIPLOT");
             txtInformativo.setText(String.valueOf(validado.getNumTotal()));
             txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
+            JOptionPane.showMessageDialog(null, "Reporte ASCIPLOT Generado correctamente");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -138,8 +139,9 @@ public class GeneradorGui {
         String inputRutaArchivo  = validarRuta(txtRutaArchivo.getText().trim());
         try {
             Generador validado=ValidationFile.validacionFile(inputRutaArchivo,"HTML");
-            txtInformativo.setText(String.valueOf(validado.getNumTotal()));
+            txtInformativo.setText(String.valueOf(validado.getNumTotal()-validado.getNumErrors()));
             txtInformativoError.setText(String.valueOf(validado.getNumErrors()));
+            JOptionPane.showMessageDialog(null, "ReportesHTML Generados correctamente");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

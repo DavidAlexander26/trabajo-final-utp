@@ -9,7 +9,7 @@ import utp.edu.pe.validation.ValidationWeek;
 import javax.swing.*;
 import java.io.IOException;
 
-public class Capturador {
+public class CapturadorGUI {
     // 1. Declarar controles y variables globales
     JLabel lblTitulo;
     JLabel lblCodDocente;JTextField txtCodDocente;

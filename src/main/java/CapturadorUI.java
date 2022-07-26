@@ -1,10 +1,10 @@
-import utp.edu.pe.gui.Capturador;
+import utp.edu.pe.gui.CapturadorGUI;
 
 import java.io.IOException;
 
-public class Main {
+public class CapturadorUI {
     public static void main(String[] args) throws IOException {
-        Capturador window = new Capturador();
+        CapturadorGUI window = new CapturadorGUI();
         window.mostrar();
     }
 }
