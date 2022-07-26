@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class Disponibilidad {
     private String codigo;
     private String nombre;
-    private String horarioSemanal;
     private String[] disponibilidadSemanal;
 
     @Override
@@ -13,7 +12,6 @@ public class Disponibilidad {
         return "Disponibilidad{" +
                 "codigo='" + codigo + '\'' +
                 ", nombre='" + nombre + '\'' +
-                ", horarioSemanal='" + horarioSemanal + '\'' +
                 ", disponibilidadSemanal=" + Arrays.toString(disponibilidadSemanal) +
                 '}';
     }
@@ -29,10 +27,9 @@ public class Disponibilidad {
     public Disponibilidad() {
     }
 
-    public Disponibilidad(String codigo, String nombre, String horarioSemanal, String[] disponibilidadSemanal) {
+    public Disponibilidad(String codigo, String nombre, String[] disponibilidadSemanal) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.horarioSemanal = horarioSemanal;
         this.disponibilidadSemanal = disponibilidadSemanal;
     }
 
@@ -52,11 +49,4 @@ public class Disponibilidad {
         this.nombre = nombre;
     }
 
-    public String getHorarioSemanal() {
-        return horarioSemanal;
-    }
-
-    public void setHorarioSemanal(String horarioSemanal) {
-        this.horarioSemanal = horarioSemanal;
-    }
 }

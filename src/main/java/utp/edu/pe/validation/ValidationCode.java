@@ -6,7 +6,7 @@ import utp.edu.pe.utils.Functions;
 import java.io.IOException;
 
 public class ValidationCode {
-    public static boolean validationCode(String code) throws IOException {
+    public static boolean validationCode(String code){
         boolean response = false;
         if(validacionTamanoCodigo(code.length())){
             if(validacionCodigo(code)){

@@ -5,6 +5,7 @@ import utp.edu.pe.model.Disponibilidad;
 import utp.edu.pe.model.Generador;
 import utp.edu.pe.reports.ReportAsci;
 import utp.edu.pe.reports.ReportAsciiPlot;
+import utp.edu.pe.reports.ReportHtml;
 import utp.edu.pe.utils.ArrayPush;
 import utp.edu.pe.utils.Constantes;
 import utp.edu.pe.utils.TextUTP;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class ValidationFile {
 
-    public static void validacionFile(String archivoDisponibilidad) throws IOException {
+    public static Generador validacionFile(String archivoDisponibilidad, String tipoReport) throws IOException {
         String response="";
         Disponibilidad responseService;
         int counterTotal=0;
@@ -43,9 +44,21 @@ public class ValidationFile {
                 }
             }
             Generador variables= new Generador(disponibilidadCorrecta,counterErrors,counterTotal);
-            ///ReportAsci.outReport(variables);
-            ReportAsciiPlot.outReport(variables);
-            //Calculos.porcentajes(variables);
+
+            switch (tipoReport){
+                case "ASCI":
+                    ReportAsci.outReport(variables);
+                    break;
+                case "ASCIPLOT":
+                    ReportAsciiPlot.outReport(variables);
+                    break;
+                case "HTML":
+                    ReportHtml.outReport(variables);
+                    break;
+                default:
+                    throw new IOException("Este tipo de reporte no existe");
+            }
+            return variables;
         }
         else{
             throw new IOException("El contenido del archivo es vacio..");

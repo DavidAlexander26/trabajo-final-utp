@@ -28,10 +28,19 @@ public class Constantes {
 
     //Validacion Codigo
     public static final String CODIGO = "C";
-
     //HORAS DISPONIBLES
     public  static final double HORAS_M=6;
     public  static final double HORAS_T=6;
     public  static final double HORAS_N=4;
+
+    //Nombre de arcivos generados
+    public static final String ARCHIVES_HTML = "reports";
+    public static final String FILE_ERROR = "error.log";
+    public static final String FILE_DATA_DISPONIBILIDAD = "disponibilidad.txt";
+
+    //HTML
+    public static final String PINTAR_CELDA = "bgcolor=\"yellow\"";
+    public static final String NO_PINTAR_CELDA = "";
+
 
 }
